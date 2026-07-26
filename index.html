@@ -3,19 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Saya</title>
+  <title>Secret Message</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-  <header>
-    <h1>Halo, Selamat Datang</h1>
-    <p>Ini adalah halaman awal website personal saya.</p>
-  </header>
+  <!-- LAYAR 1: Input Nama -->
+  <section id="screen-name" class="screen active">
+    <div class="card">
+      <h1>Siapa nama kamu?</h1>
+      <input type="text" id="nameInput" class="rounded-input" placeholder="Tulis nama di sini...">
+      <p class="hint">Tidak harus nama asli kok, bebas pakai apa saja.</p>
+      <button id="beginBtn" class="rounded-btn">Begin</button>
+    </div>
+  </section>
 
-  <main>
-    <p>Konten website akan ditambahkan di sini.</p>
-  </main>
+  <!-- LAYAR 2: Main Content (Form Pesan) -->
+  <section id="screen-main" class="screen">
+    <div class="card">
+      <h2 id="greeting">Halo!</h2>
+
+      <div class="tag-group">
+        <button class="tag-btn" data-tag="Confession">Confession</button>
+        <button class="tag-btn" data-tag="Sharing">Sharing</button>
+        <button class="tag-btn" data-tag="Rate Me">Rate Me</button>
+      </div>
+
+      <textarea id="messageInput" class="rounded-input textarea" placeholder="Tulis pesan rahasiamu di sini..."></textarea>
+
+      <button id="sendBtn" class="rounded-btn">Kirim</button>
+      <p id="statusText" class="hint"></p>
+    </div>
+  </section>
+
+  <!-- Bagian ini nanti diisi desain: author / cerita di belakang website -->
+  <footer id="author-section">
+    <!-- konten author/story ditambahkan di fase desain -->
+  </footer>
 
   <script src="script.js"></script>
 </body>
