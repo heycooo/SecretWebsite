@@ -12,6 +12,18 @@ const statusText = document.getElementById('statusText');
 let selectedTag = null;
 let senderName = 'Seseorang';
 
+// ===== Transisi fade-blur antar layar =====
+function switchScreen(fromScreen, toScreen) {
+  fromScreen.classList.add('fading');
+
+  setTimeout(() => {
+    fromScreen.classList.remove('active');
+    fromScreen.classList.remove('fading');
+
+    toScreen.classList.add('active');
+  }, 450); // durasi harus sama dengan transition di CSS
+}
+
 // ===== Layar 1 -> Layar 2 =====
 beginBtn.addEventListener('click', () => {
   const typed = nameInput.value.trim();
@@ -19,8 +31,7 @@ beginBtn.addEventListener('click', () => {
 
   greeting.textContent = `Halo, ${senderName}!`;
 
-  screenName.classList.remove('active');
-  screenMain.classList.add('active');
+  switchScreen(screenName, screenMain);
 });
 
 // ===== Pilih Mood Tag =====
