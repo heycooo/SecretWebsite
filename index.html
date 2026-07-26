@@ -4,9 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Secret Message</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
+  <!-- Elemen dekoratif di background, sumber efek blur -->
+  <div class="bg-blob blob-1"></div>
+  <div class="bg-blob blob-2"></div>
 
   <!-- LAYAR 1: Input Nama -->
   <section id="screen-name" class="screen active">
@@ -14,7 +20,7 @@
       <h1>Siapa nama kamu?</h1>
       <input type="text" id="nameInput" class="rounded-input" placeholder="Tulis nama di sini...">
       <p class="hint">Tidak harus nama asli kok, bebas pakai apa saja.</p>
-      <button id="beginBtn" class="rounded-btn">Begin</button>
+      <button id="beginBtn" class="rounded-btn">Mulai Tulis</button>
     </div>
   </section>
 
@@ -26,7 +32,6 @@
       <div class="tag-group">
         <button class="tag-btn" data-tag="Confession">Confession</button>
         <button class="tag-btn" data-tag="Sharing">Sharing</button>
-        <button class="tag-btn" data-tag="Rate Me">Rate Me</button>
       </div>
 
       <textarea id="messageInput" class="rounded-input textarea" placeholder="Tulis pesan rahasiamu di sini..."></textarea>

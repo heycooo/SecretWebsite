@@ -24,8 +24,7 @@ exports.handler = async function (event) {
     // Warna embed berbeda per tag
     const tagColors = {
       'Confession': 15158332, // merah
-      'Sharing': 3447003,     // biru
-      'Rate Me': 15844367     // kuning
+      'Sharing': 3447003      // biru
     };
 
     const discordPayload = {
