@@ -8,6 +8,10 @@ const tagButtons = document.querySelectorAll('.tag-btn');
 const messageInput = document.getElementById('messageInput');
 const sendBtn = document.getElementById('sendBtn');
 const statusText = document.getElementById('statusText');
+const backToNameBtn = document.getElementById('backToNameBtn');
+const previewTriggerBtn = document.getElementById('previewTriggerBtn');
+
+let lastSentMessage = '';
 
 let selectedTag = null;
 let senderName = 'Seseorang';
@@ -39,6 +43,12 @@ beginBtn.addEventListener('click', () => {
   greeting.innerHTML = `Halo, <span class="accent-text">${escapeHtml(senderName)}</span>!`;
 
   switchScreen(screenName, screenMain);
+});
+
+// ===== Back icon: Layar 2 -> Layar 1 =====
+backToNameBtn.addEventListener('click', () => {
+  switchScreen(screenMain, screenName);
+  previewTriggerBtn.style.display = 'none';
 });
 
 // ===== Helper untuk update status text =====
@@ -85,9 +95,11 @@ sendBtn.addEventListener('click', async () => {
 
     if (response.ok) {
       setStatus('Pesan terkirim!', false);
+      lastSentMessage = message;
       messageInput.value = '';
       tagButtons.forEach(b => b.classList.remove('selected'));
       selectedTag = null;
+      previewTriggerBtn.style.display = 'block';
     } else {
       setStatus('Gagal mengirim, coba lagi.', true);
     }
@@ -96,4 +108,9 @@ sendBtn.addEventListener('click', async () => {
   }
 
   sendBtn.disabled = false;
+});
+
+// ===== Tombol "Lihat Pesan" -> panggil modul preview.js =====
+previewTriggerBtn.addEventListener('click', () => {
+  window.openPreviewMode(senderName, lastSentMessage);
 });

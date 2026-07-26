@@ -1,0 +1,95 @@
+/* ============================================
+   preview.css
+   Styling KHUSUS untuk fitur Preview Mode.
+   Sengaja dipisah dari style.css utama supaya
+   fitur ini tetap modular dan mudah diubah
+   tanpa menyentuh layar Nama/Main Content.
+   ============================================ */
+
+.preview-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+  max-width: 480px;
+  width: 100%;
+  padding-top: 3rem;
+}
+
+/* Panel kiri: teks polos, mudah dibaca */
+.preview-readable {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+  padding: 1.25rem 1.5rem;
+  width: 100%;
+  color: var(--text-main);
+  font-family: 'Caveat', cursive;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  text-align: left;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Kertas yang bisa di-drag/tilt */
+.paper-wrapper {
+  position: relative;
+  width: 260px;
+  max-width: 80%;
+  aspect-ratio: 2 / 3;
+  cursor: grab;
+  transition: transform 0.15s ease-out;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.paper-wrapper:active {
+  cursor: grabbing;
+}
+
+.paper-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  display: block;
+  pointer-events: none; /* supaya drag terasa di seluruh wrapper, bukan cuma gambar */
+}
+
+/* Teks di atas kertas — warna tinta gelap agar kontras di kertas tan */
+.paper-text-overlay {
+  position: absolute;
+  top: 10%;
+  left: 12%;
+  right: 12%;
+  bottom: 14%;
+  font-family: 'Caveat', cursive;
+  color: #2b1c10;
+  font-size: 1.15rem;
+  line-height: 1.35;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  pointer-events: none;
+}
+
+#paperMessageText {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.paper-from {
+  align-self: flex-end;
+  font-size: 1.05rem;
+  font-weight: 600;
+}
+
+@media (max-width: 480px) {
+  .paper-wrapper {
+    width: 220px;
+  }
+}

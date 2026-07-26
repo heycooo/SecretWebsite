@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="preview.css">
 </head>
 <body>
 
@@ -27,6 +28,7 @@
   <!-- LAYAR 2: Main Content (Form Pesan) -->
   <section id="screen-main" class="screen">
     <div class="card">
+      <button id="backToNameBtn" class="icon-btn" aria-label="Kembali ke halaman nama">←</button>
       <h2 id="greeting">Halo!</h2>
 
       <div class="tag-group">
@@ -38,6 +40,26 @@
 
       <button id="sendBtn" class="rounded-btn">Kirim</button>
       <p id="statusText" class="hint"></p>
+      <button id="previewTriggerBtn" class="rounded-btn preview-trigger-btn" style="display:none;">Lihat Pesan</button>
+    </div>
+  </section>
+
+  <!-- LAYAR 3: Preview Mode (modul terpisah, lihat preview.css & preview.js) -->
+  <section id="screen-preview" class="screen">
+    <div class="preview-container">
+      <button id="previewBackBtn" class="icon-btn" aria-label="Kembali menulis">←</button>
+
+      <div class="preview-readable">
+        <p id="readableText"></p>
+      </div>
+
+      <div class="paper-wrapper" id="paperWrapper">
+        <img src="assets/images/paper.jpg" alt="Kertas surat" class="paper-image">
+        <div class="paper-text-overlay">
+          <p id="paperMessageText"></p>
+          <p class="paper-from">From: <span id="paperFromName"></span></p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -47,5 +69,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="preview.js"></script>
 </body>
 </html>
