@@ -9,28 +9,23 @@
 .preview-container {
   position: relative;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
-  gap: 1.5rem;
-  max-width: 480px;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 720px;
   width: 100%;
   padding-top: 3rem;
 }
 
-/* Panel kiri: teks polos, mudah dibaca */
+/* Panel kiri: teks polos, tanpa card box, murni untuk keterbacaan */
 .preview-readable {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 16px;
-  padding: 1.25rem 1.5rem;
-  width: 100%;
+  flex: 1;
   color: var(--text-main);
   font-family: 'Caveat', cursive;
-  font-size: 1.4rem;
+  font-size: 1.5rem;
   line-height: 1.5;
   text-align: left;
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
 }
 
 /* Kertas yang bisa di-drag/tilt */
@@ -86,6 +81,12 @@
   align-self: flex-end;
   font-size: 1.05rem;
   font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .preview-container {
+    flex-direction: column;
+  }
 }
 
 @media (max-width: 480px) {

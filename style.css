@@ -127,6 +127,13 @@ body {
   background: rgba(248, 252, 70, 0.1);
 }
 
+/* Preview mode hanya untuk desktop — disembunyikan di layar hp */
+@media (max-width: 768px) {
+  .preview-trigger-btn {
+    display: none !important;
+  }
+}
+
 .card h1, .card h2 {
   margin-bottom: 1.5rem;
   color: var(--text-main);
